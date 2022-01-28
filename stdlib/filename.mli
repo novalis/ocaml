@@ -138,6 +138,20 @@ val temp_file : ?temp_dir: string -> string -> string -> string
    @before 3.11.2 no ?temp_dir optional argument
 *)
 
+val temp_dir : ?temp_dir: string -> string -> string -> string
+(** [temp_dir prefix suffix] returns the name of a
+   fresh temporary directory inside the temporary directory.
+   The base name of the temporary directory is formed by concatenating
+   [prefix], then a suitably chosen integer number, then [suffix].
+   The optional argument [temp_dir] indicates the temporary directory
+   to use, defaulting to the current result of {!Filename.get_temp_dir_name}.
+   The temporary directory is created empty, with permissions [0o700]
+   (readable, writable, and searchable only by the file owner).  The
+   directory is guaranteed to be different from any other directory that
+   existed when [temp_dir] was called.
+   @raise Sys_error if the directory could not be created.
+*)
+
 val open_temp_file :
       ?mode: open_flag list -> ?perms: int -> ?temp_dir: string -> string ->
       string -> string * out_channel

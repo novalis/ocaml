@@ -55,6 +55,8 @@ Working version
   Unix.SO_ERROR.
   (Nicolás Ojeda Bär, review by Damien Doligez)
 
+* #10967: Add Filename.temp_dir (David Turner)
+
 ### Other libraries:
 
 * #9071, #9100, #10935: Reimplement `Thread.exit()` as raising the
